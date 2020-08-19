@@ -3,7 +3,7 @@ import os
 
 cam = cv2.VideoCapture(0)
 #este es un comentario
-
+#est es otro comentario
 cv2.namedWindow("test")
 
 img_counter = 0
