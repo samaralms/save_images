@@ -1,9 +1,11 @@
 import cv2
 import os, os.path
+import glob
+import datetime
+import time
 
 cam = cv2.VideoCapture(0)
-#este es un comentario
-#est es
+
 cv2.namedWindow("test")
 
 img_counter = 0
@@ -31,18 +33,18 @@ while True:
         path, dirs, files = next(os.walk("/home/samara/Desktop/OPTIMOTION2/Proyectos_Relevantes/guardar_img/img_folder"))
         file_count = len(files)
         print(file_count)
-        os.path = '/home/samara/Desktop/OPTIMOTION2/Proyectos_Relevantes/guardar_img/img_folder'
-        if file_count > 5:
-            # os.remove("/home/samara/Desktop/OPTIMOTION2/Proyectos_Relevantes/guardar_img/img_folder/")
-            print(files)
-            files.sort(key=os.path.getmtime)
-            print(files)
-            os.remove('/home/samara/Desktop/OPTIMOTION2/Proyectos_Relevantes/guardar_img/img_folder/'+files[len(files)-1])
+        
+
+        
+
+        # if file_count == 5:
+    
+        #     print(files)
+        #     files.sort(key=os.path.getmtime)
+        #     print(files)
+        #     os.remove('/home/samara/Desktop/OPTIMOTION2/Proyectos_Relevantes/guardar_img/img_folder/'+files[len(files)-1])
             
            
-        # files = os.listdir('/home/samara/Desktop/OPTIMOTION2/Proyectos_Relevantes/guardar_img/img_folder')
-        # for file in files[1:]:
-        #     os.remove(file)
 
 
 cam.release()
