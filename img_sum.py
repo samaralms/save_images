@@ -26,11 +26,7 @@ while True:
         break
     elif k%256 == 32:
          # SPACE pressed
-        img_name = "opencv_frame_{}_.png".format(img_counter)
-        path = '/home/samara/Desktop/OPTIMOTION2/Proyectos_Relevantes/guardar_img/img_folder'
-        cv2.imwrite(os.path.join(path,img_name), frame)
-        print("{} written!".format(img_name))
-        img_counter += 1
+        
 
         path, dirs, files = next(os.walk("/home/samara/Desktop/OPTIMOTION2/Proyectos_Relevantes/guardar_img/img_folder"))
         file_count = len(files)
@@ -38,30 +34,30 @@ while True:
 
 
         images = []
-
-        
+        nums = []
+        max_v = 0
+        min_v = 0
         for file in files:
+            temp = file.split('_')
+            nums.append(int(temp[2]))
+            print(temp[2])
             images.append(file)
-            print(images)
+        print(nums)
+        if nums:
+            min_v = min(nums)
+            max_v = max(nums)
         
-
-        list_of_list = []
-        for img in images:
-            list_of_list.append(img.split('_'))
-            print(list_of_list)
-
-
-        numbers_of_list = []
+        img_name = "opencv_frame_" + str(max_v + 1) + "_.png"
+        path = '/home/samara/Desktop/OPTIMOTION2/Proyectos_Relevantes/guardar_img/img_folder'
+        cv2.imwrite(os.path.join(path,img_name), frame)
+        print("{} written!".format(img_name))
         
-        for list_element in list_of_list:
-            numbers_of_list.append(list_element[2])
-            print(numbers_of_list)
-
         
-        if 6 == len(numbers_of_list):
+        
+        if 6 == len(images):
             print("llegue al 6") 
-            print("opencv_frame_"+ str(min(numbers_of_list)) + "_.png")
-            os.remove("/home/samara/Desktop/OPTIMOTION2/Proyectos_Relevantes/guardar_img/img_folder/"+ "opencv_frame_"+ str(min(numbers_of_list)) + "_.png")
+            print("opencv_frame_"+ str(min_v) + "_.png")
+            os.remove("/home/samara/Desktop/OPTIMOTION2/Proyectos_Relevantes/guardar_img/img_folder/"+ "opencv_frame_"+ str(min_v) + "_.png")
 
 
 
